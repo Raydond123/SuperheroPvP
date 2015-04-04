@@ -177,8 +177,8 @@ public class SuperheroPvP extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(rpggui, this);
         Bukkit.getPluginManager().registerEvents(spiderman, this);
 
-        getCommand("kit").setExecutor(kitCommand);
-        getCommand("kits").setExecutor(kitCommand);
+        getCommand("character").setExecutor(kitCommand);
+        getCommand("characters").setExecutor(kitCommand);
         getCommand("upgrade").setExecutor(rpggui);
 
         iceShooter.startClock();
@@ -190,6 +190,25 @@ public class SuperheroPvP extends JavaPlugin {
         setupEconomy();
 
         setUserData();
+
+        saveDb();
+
+    }
+
+    File dbFile = new File("/plugins/SuperheroPvP/database.yml");
+    public YamlConfiguration dbYaml = YamlConfiguration.loadConfiguration(dbFile);
+
+    public void saveDb() {
+
+        try {
+
+            dbYaml.save(dbFile);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
 
     }
 

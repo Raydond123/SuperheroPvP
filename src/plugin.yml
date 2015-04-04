@@ -2,7 +2,7 @@ name: SuperHeroPvP
 main: me.raydond123.superheropvp.SuperheroPvP
 author: Raydond123 (J4va)
 version: 1.0
-depends: [GrapplingHook, WorldGuard]
+depends: [GrapplingHook, WorldGuard, Vault]
 commands:
    kit:
       description: Another way to open up the KitGUI.

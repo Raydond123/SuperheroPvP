@@ -4,6 +4,7 @@ import me.raydond123.superheropvp.SuperheroPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -180,7 +181,7 @@ public class KitGUI implements Listener{
     @EventHandler
     public void onClick(InventoryClickEvent e) {
 
-        Player player = (Player) e.getWhoClicked();
+        final Player player = (Player) e.getWhoClicked();
         ItemStack item = e.getCurrentItem();
         Inventory inventory = e.getInventory();
 
@@ -188,51 +189,363 @@ public class KitGUI implements Listener{
 
             if(item.getType() == Material.WEB) {
 
-                plugin.kitLoader.loadKit(player, "Spiderman");
-                e.setCancelled(true);
-                player.closeInventory();
+                if(plugin.dbYaml.get("players." + player.getName()) == null) {
+
+                    plugin.kitLoader.loadKit(player, "Spiderman");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "Spiderman");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else if (plugin.dbYaml.get("players." + player.getName()).equals("Spiderman")) {
+
+                    plugin.kitLoader.loadKit(player, "Spiderman");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "Spiderman");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else {
+
+                    e.setCancelled(true);
+                    player.playSound(player.getLocation(), Sound.ANVIL_LAND, 1, 0);
+                    
+                }
 
             } else if(item.getType() == Material.NETHER_STAR) {
 
-                plugin.kitLoader.loadKit(player, "Batman");
-                e.setCancelled(true);
-                player.closeInventory();
+                if(plugin.dbYaml.get("players." + player.getName()) == null) {
+
+                    plugin.kitLoader.loadKit(player, "Batman");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "Batman");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else if (plugin.dbYaml.get("players." + player.getName()).equals("Batman")) {
+
+                    plugin.kitLoader.loadKit(player, "Batman");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "Batman");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else {
+
+                    e.setCancelled(true);
+                    player.playSound(player.getLocation(), Sound.ANVIL_LAND, 1, 0);
+
+                }
 
             } else if(item.getType() == Material.SLIME_BLOCK) {
 
-                plugin.kitLoader.loadKit(player, "Hulk");
-                e.setCancelled(true);
-                player.closeInventory();
+                if(plugin.dbYaml.get("players." + player.getName()) == null) {
+
+                    plugin.kitLoader.loadKit(player, "Hulk");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "Hulk");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else if (plugin.dbYaml.get("players." + player.getName()).equals("Hulk")) {
+
+                    plugin.kitLoader.loadKit(player, "Hulk");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "Hulk");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else {
+
+                    e.setCancelled(true);
+                    player.playSound(player.getLocation(), Sound.ANVIL_LAND, 1, 0);
+
+                }
 
             } else if(item.getType() == Material.ICE) {
 
-                plugin.kitLoader.loadKit(player, "Iceman");
-                e.setCancelled(true);
-                player.closeInventory();
+                if(plugin.dbYaml.get("players." + player.getName()) == null) {
+
+                    plugin.kitLoader.loadKit(player, "Iceman");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "Iceman");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else if (plugin.dbYaml.get("players." + player.getName()).equals("IceMan")) {
+
+                    plugin.kitLoader.loadKit(player, "IceMan");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "IceMan");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else {
+
+                    e.setCancelled(true);
+                    player.playSound(player.getLocation(), Sound.ANVIL_LAND, 1, 0);
+
+                }
 
             } else if(item.getType() == Material.IRON_SWORD) {
 
-                plugin.kitLoader.loadKit(player, "Joker");
-                e.setCancelled(true);
-                player.closeInventory();
+                if(plugin.dbYaml.get("players." + player.getName()) == null) {
+
+                    plugin.kitLoader.loadKit(player, "Joker");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "Joker");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else if (plugin.dbYaml.get("players." + player.getName()).equals("Joker")) {
+
+                    plugin.kitLoader.loadKit(player, "Joker");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "Joker");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else {
+
+                    e.setCancelled(true);
+                    player.playSound(player.getLocation(), Sound.ANVIL_LAND, 1, 0);
+
+                }
 
             } else if(item.getType() == Material.STICK) {
 
-                plugin.kitLoader.loadKit(player, "Loki");
-                e.setCancelled(true);
-                player.closeInventory();
+                if(plugin.dbYaml.get("players." + player.getName()) == null) {
+
+                    plugin.kitLoader.loadKit(player, "Loki");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "Loki");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else if (plugin.dbYaml.get("players." + player.getName()).equals("Loki")) {
+
+                    plugin.kitLoader.loadKit(player, "Loki");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "Loki");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else {
+
+                    e.setCancelled(true);
+                    player.playSound(player.getLocation(), Sound.ANVIL_LAND, 1, 0);
+
+                }
 
             } else if(item.getType() == Material.BOW) {
 
-                plugin.kitLoader.loadKit(player, "DeathStroke");
-                e.setCancelled(true);
-                player.closeInventory();
+                if(plugin.dbYaml.get("players." + player.getName()) == null) {
+
+                    plugin.kitLoader.loadKit(player, "DeathStroke");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "DeathStroke");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else if (plugin.dbYaml.get("players." + player.getName()).equals("DeathStroke")) {
+
+                    plugin.kitLoader.loadKit(player, "DeathStroke");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "DeathStroke");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else {
+
+                    e.setCancelled(true);
+                    player.playSound(player.getLocation(), Sound.ANVIL_LAND, 1, 0);
+
+                }
 
             } else if(item.getType() == Material.BEDROCK) {
 
-                plugin.kitLoader.loadKit(player, "Bizzarro");
-                e.setCancelled(true);
-                player.closeInventory();
+                if(plugin.dbYaml.get("players." + player.getName()) == null) {
+
+                    plugin.kitLoader.loadKit(player, "Bizzarro");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "Bizzarro");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else if (plugin.dbYaml.get("players." + player.getName()).equals("Bizzarro")) {
+
+                    plugin.kitLoader.loadKit(player, "Bizzarro");
+                    e.setCancelled(true);
+                    player.closeInventory();
+
+                    plugin.dbYaml.set("players." + player.getName(), "Bizzarro");
+                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            plugin.dbYaml.set("players." + player.getName(), null);
+
+                        }
+
+                    }, 20L * 86400);
+
+                } else {
+
+                    e.setCancelled(true);
+                    player.playSound(player.getLocation(), Sound.ANVIL_LAND, 1, 0);
+
+                }
 
             }
 
